@@ -63,4 +63,4 @@ RUN adduser \
 RUN mkdir -p /src \
     && chown $UID:$GID /src
 
-CMD ["crond"]
+CMD ["/bin/sh", "-c", "php-fpm; crond"]
