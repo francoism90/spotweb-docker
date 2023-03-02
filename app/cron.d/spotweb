@@ -1,0 +1,2 @@
+*/15 * * * * su -l tea -s /usr/local/bin/php /src/app/retrieve.php > /proc/1/fd/1 2>/proc/1/fd/2
+10 */1 * * * su -l tea -s /usr/local/bin/php /src/app/bin/check-cache.php > /proc/1/fd/1 2>/proc/1/fd/2

@@ -52,6 +52,7 @@ RUN apk add --no-cache --virtual .run-deps \
 RUN setcap "cap_net_bind_service=+ep" $(which php) \
     && setcap "cap_net_bind_service=+ep" $(which php-fpm)
 
+COPY cron.d/* /etc/cron.d/
 COPY www.conf /usr/local/etc/php-fpm.d/www.conf
 
 RUN adduser \
@@ -63,4 +64,4 @@ RUN adduser \
 RUN mkdir -p /src \
     && chown $UID:$GID /src
 
-CMD ["/bin/sh", "-c", "php-fpm; crond"]
+CMD ["/bin/sh", "-c", "php-fpm; crond -f -d 8"]
