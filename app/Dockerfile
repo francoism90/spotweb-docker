@@ -62,3 +62,5 @@ RUN adduser \
 
 RUN mkdir -p /src \
     && chown $UID:$GID /src
+
+CMD ["crond"]
